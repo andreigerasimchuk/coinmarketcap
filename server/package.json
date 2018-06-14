@@ -1,0 +1,29 @@
+{
+  "name": "coinmarketcap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreigerasimchuk/coinmarketcap.git"
+  },
+  "author": "Andrei Gerasimchuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreigerasimchuk/coinmarketcap/issues"
+  },
+  "homepage": "https://github.com/andreigerasimchuk/coinmarketcap#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3"
+  }
+}
