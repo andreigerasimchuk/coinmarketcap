@@ -2,7 +2,7 @@ import db from './db';
 
 import { guid } from '../util';
 
-const getAllUsers = async (req, res) => {
+const getAllUsers = async () => {
   const { rows } = await db.query('SELECT * FROM userstest');
   return rows;
 };
@@ -14,10 +14,10 @@ const create = async (user) => {
   return rows;
 }
 
-const findUser = async (req, res) => {
+const findUser = async (login) => {
   const query = {
-    text: 'SELECT * FROM userstest where id = $1',
-    values: ["c7064ae0-c371-8da0-b842-1e52e5a8d5b9"]
+    text: 'SELECT * FROM userstest where login = $1',
+    values: [login]
   }
   const { rows } = await db.query(query);
   return rows[0];

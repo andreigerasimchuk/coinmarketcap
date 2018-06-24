@@ -1,5 +1,14 @@
 import { create, getAllUsers, findUser } from '../dao/users';
+import passportJwt from 'passport-jwt';
 import jwt from 'jsonwebtoken';
+
+const JwtStrategy = passportJwt.Strategy;
+const ExtractJwt = passportJwt.ExtractJwt;
+
+const jwtOptions = {
+  jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme("jwt"),
+  secretOrKey: 'secret'
+};
 
 const createUser = (req, res) => {
   const { login, password, email } = req.body;
@@ -25,11 +34,8 @@ const getUsers = (req, res) => {
 }
 
 const login = (req, res) => {
-  const { name, password } = req.body;
-  if (req.body.name && req.body.password) {
-    const { name, password } = req.body;
-  }
-  findUser()
+  const { login, password } = req.body;
+  findUser(login)
     .then(user => {
       if (!user) {
         res.status(401).json({ message: "no such user found" });

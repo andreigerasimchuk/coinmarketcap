@@ -13,7 +13,6 @@ import apiCoins from './routes/coins';
 
 const app = express();
 
-const secret = 'secret';
 const JwtStrategy = passportJwt.Strategy;
 const ExtractJwt = passportJwt.ExtractJwt;
 
