@@ -11,6 +11,8 @@ import { getAllUsers } from './dao/users';
 import api from './routes/users';
 import apiCoins from './routes/coins';
 
+import { updateCoinsInformations } from './core/services/coins';
+
 const app = express();
 
 const JwtStrategy = passportJwt.Strategy;
@@ -51,6 +53,7 @@ const start = () => {
             console.error(err, 'Internal server error');
         } else {
             console.info(`Server is up on ${port}'s port`);
+            updateCoinsInformations();
         }
     });
 }
