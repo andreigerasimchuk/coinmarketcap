@@ -2,7 +2,6 @@ import { create, getAllUsers, findUser } from '../dao/users';
 import passportJwt from 'passport-jwt';
 import jwt from 'jsonwebtoken';
 
-const JwtStrategy = passportJwt.Strategy;
 const ExtractJwt = passportJwt.ExtractJwt;
 
 const jwtOptions = {
@@ -44,7 +43,14 @@ const login = (req, res) => {
       if (user.password === password) {
         var payload = { id: user.id };
         var token = jwt.sign(payload, jwtOptions.secretOrKey);
-        res.json({ message: "ok", token: token });
+        res.status(200).json({
+          message: 'ok',
+          user: {
+            login: user.login,
+            email: user.email,
+            token: token
+          }
+        });
       } else {
         res.status(401).json({ message: "passwords did not match" });
       }

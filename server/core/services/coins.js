@@ -1,4 +1,4 @@
-import { getAllCoins } from '../../dao/coins';
+import { getAllCoins, createCoins } from '../../dao/coins';
 import fetch from 'node-fetch';
 
 const updateCoinsInformations = () => {
@@ -17,15 +17,17 @@ const updateCoinsInformations = () => {
       return data;
     })
     .then(data => {
-      console.log(data)
-    })
+      if (data.length > 0) {
+        createCoins(data);
+      }
+    });
 }
 
 const getCoins = () => {
   return fetch('https://api.coinmarketcap.com/v2/listings/', { method: 'GET' })
     .then(res => res.json())
     .then(res => {
-      let data = res.data;
+      let { data } = res;
       data.length = 3;
       return data;
     })

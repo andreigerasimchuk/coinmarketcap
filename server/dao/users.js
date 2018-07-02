@@ -1,5 +1,4 @@
 import db from './db';
-
 import { guid } from '../util';
 
 const getAllUsers = async () => {
@@ -8,9 +7,11 @@ const getAllUsers = async () => {
 };
 
 const create = async (user) => {
-  const textQuery = 'INSERT INTO userstest(id, login, password, email) VALUES($1, $2, $3, $4) RETURNING *';
-  const values = [guid(), user.login, user.password, user.email];
-  const { rows } = await db.query(textQuery, values);
+  const query = {
+    text: 'INSERT INTO userstest(id, login, password, email) VALUES($1, $2, $3, $4) RETURNING *',
+    values: [guid(), user.login, user.password, user.email] 
+  }
+  const { rows } = await db.query(query);
   return rows;
 }
 
