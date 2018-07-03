@@ -5,7 +5,7 @@ import { createUser, getUsers, login } from '../controllers/users';
 
 const router = express.Router();
 
-router.get('/', getUsers);
+router.get('/', passport.authenticate('jwt', { session: false }), getUsers);
 
 router.post('/', createUser);
 router.post('/login', login);

@@ -1,4 +1,4 @@
-import { getAllCoins as getCoins } from '../dao/coins';
+import { getAllCoins as getCoins, getListCoins } from '../dao/coins';
 
 const getAllCoins = (req, res) => {
   getCoins()
@@ -7,6 +7,15 @@ const getAllCoins = (req, res) => {
     })
 }
 
+const getCoinsList = (req, res) => {
+  const { userId } = req.params;
+  getListCoins(userId)
+    .then(data => {
+      res.status(200).json(data);
+    });
+}
+
 export {
   getAllCoins,
+  getCoinsList,
 }

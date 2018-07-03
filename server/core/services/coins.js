@@ -28,12 +28,21 @@ const getCoins = () => {
     .then(res => res.json())
     .then(res => {
       let { data } = res;
-      data.length = 3;
+      data.length = 10;
       return data;
     })
     .catch(err => []);
 }
 
+const getCoinsСourses = (CoinsId) => {
+  return fetch('https://api.coinmarketcap.com/v2/ticker/1/', { method: 'GET' })
+  .then(res => res.json)
+  .then(data => {
+    return data;
+  });
+}
+
 export {
   updateCoinsInformations,
+  getCoinsСourses,
 }

@@ -4,8 +4,8 @@
 }
 
 .navigation {
-  background-color: #e9ece5;
-  min-width: 170px;
+  background-color: #b3c2bf;
+  min-width: 10vw;
   * {
     min-height: 30px;
     background-color: #c0dfd9;
@@ -14,4 +14,10 @@
   :hover {
     cursor: pointer;
   }
+}
+
+.page-container {
+  //background: #e9ece5;
+  min-width: 90vw;
+  margin-top: 20px;
 }

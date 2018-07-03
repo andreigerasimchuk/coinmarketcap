@@ -39,6 +39,14 @@ class Auth {
     return user.token || null;
   }
 
+  getUserId() {
+    const user = this.getUser();
+    if (user === null) {
+      return null;
+    }
+    return user.userId || null;
+  }
+
   loggedIn() {
     const token = this.getToken();
     return !!token;

@@ -14,6 +14,9 @@ class Navigation extends Component {
         <div className="navigation__coins">
           <Link to='/coins'>COINS</Link>
         </div>
+        <div className="navigation__coins-list">
+          <Link to='/coins-list'>COINS list</Link>
+        </div>
       </div>
     );
   }

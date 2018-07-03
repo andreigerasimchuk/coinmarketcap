@@ -46,7 +46,8 @@ const login = (req, res) => {
         res.status(200).json({
           message: 'ok',
           user: {
-            login: user.login,
+            userId: user.u_id,
+            login: user.username,
             email: user.email,
             token: token
           }

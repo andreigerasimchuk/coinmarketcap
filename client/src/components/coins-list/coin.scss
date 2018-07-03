@@ -1,0 +1,15 @@
+.coin {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  .coin-checbox{
+    margin-right: 10px;
+  }
+  .coin-name {
+    min-width: 100px;
+  }
+  .coin-updateFrequency {
+    max-width: 40px;
+    margin-left: 10px;
+  }
+}

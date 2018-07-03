@@ -2,7 +2,7 @@ const { Pool } = require('pg')
 
 var config = {
   user: 'postgres',
-  database: 'test', 
+  database: 'coinmarketcap', 
   password: '123', 
   port: 5432, 
 };

@@ -23,20 +23,22 @@ class Login extends Component {
   }
   render() {
     return (
-      <div className="login">
-        <form className="" onSubmit={this.onLogin}>
-          <input
-            type="text"
-            className="login__userName"
-            ref={this.loginInput}
-          />
-          <input
-            type="password"
-            className="login__userPassword"
-            ref={this.passwordInput}
-          />
-          <button className="">login</button>
-        </form>
+      <div className="page-container">
+        <div className="login">
+          <form className="" onSubmit={this.onLogin}>
+            <input
+              type="text"
+              className="login__userName"
+              ref={this.loginInput}
+            />
+            <input
+              type="password"
+              className="login__userPassword"
+              ref={this.passwordInput}
+            />
+            <button className="">login</button>
+          </form>
+        </div>
       </div>
     )
   }

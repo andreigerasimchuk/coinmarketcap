@@ -26,7 +26,7 @@ const jwtOptions = {
 const strategy = new JwtStrategy(jwtOptions, (jwt_payload, next) => {
     getAllUsers()
       .then(users =>{
-        let user = users.findIndex(user => user.id === jwt_payload.id);
+        let user = users.findIndex(user => user.u_id === jwt_payload.id);
         if (user) {
             next(null, user);
         } else {
