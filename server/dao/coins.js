@@ -10,28 +10,41 @@ const getListCoins = async (userId) => {
   const query = {
     text: `SELECT 
     coins.c_id,
-    coins.coinname,
-    coins.coinsymbol,
-    usercoins.updatefrequency,
-    CASE
-      WHEN
-        usercoins.u_id = '${userId}' THEN true 
-      ELSE false 
-    END AS checked
+    coins.coinname, 
+    coins.coinsymbol
     from coins 
-    LEFT JOIN usercoins 
-    ON coins.c_id = usercoins.c_id 
-    AND usercoins.u_id = '${userId}';`
+    where coins.c_id NOT IN(
+    SELECT 
+    usercoins.c_id 
+    from usercoins 
+    where usercoins.u_id = '${userId}');`
   };
+  const { rows } = await db.query(query);
+  return rows;
+}
+
+const createUserCoins = async (userId, coins) => {
+  let values = '';
+  values += coins.map(coin => `('${guid()}', '${userId}', ${coin.c_id}, ${coin.updatefrequency})`);
+  const query = {
+    text: `INSERT INTO usercoins(uc_id, u_id, c_id, updatefrequency) VALUES ${values} RETURNING *`,
+  };
+  const { rows } = await db.query(query);
+  return rows;
+}
+
+const getUserCoins = async (userId) => {
+  const query = {
+    text: 'SELECT c_id, updatefrequency FROM usercoins where u_id = $1',
+    values: [userId]
+  }
   const { rows } = await db.query(query);
   return rows;
 }
 
 const createCoins = async (coins) => {
   let values = '';
-  values += coins.map(coin => {
-    return `(${coin.id}, '${coin.name}', '${coin.symbol}')`;
-  });
+  values += coins.map(coin => `(${coin.id}, '${coin.name}', '${coin.symbol}')`);
   const query = {
     text: `INSERT INTO coins(c_id, coinname, coinsymbol) VALUES ${values} RETURNING *`,
   };
@@ -53,4 +66,6 @@ export {
   createCoins,
   assignCoinsToUser,
   getListCoins,
+  getUserCoins,
+  createUserCoins,
 }

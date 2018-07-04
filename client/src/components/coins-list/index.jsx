@@ -16,7 +16,8 @@ class CoinsList extends Component {
   componentDidMount() {
     this.CoinsService.getListCoins()
       .then(coins => {
-        this.setState({ coins });
+        let currentCoins = this.CoinsService.createCoins(coins);
+        this.setState({ coins: currentCoins });
       });
   }
 
@@ -35,7 +36,19 @@ class CoinsList extends Component {
   }
   onSubmitForm = (event) => {
     event.preventDefault();
-    alert();
+
+    let coins = this.state.coins.filter(coin => coin.checked);
+    let currentCoins = coins.map(coin => {
+      return {
+        c_id: coin.c_id,
+        updatefrequency: coin.updatefrequency,
+      }
+    });
+    this.CoinsService.setUserCoins({ coins: currentCoins })
+      .then(data => {
+        let currentCoins = this.CoinsService.createCoins(data);
+        this.setState({ coins: currentCoins });
+      });
   }
   render() {
 

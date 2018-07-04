@@ -30,7 +30,7 @@ const Coin = ({
       <input
         type="text"
         className="coin-updateFrequency"
-        value={updateFrequency || 30}
+        value={updateFrequency}
         onChange={handleChangeInput}
       />
     </div>
