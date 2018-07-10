@@ -6,6 +6,6 @@ export default async (userCoinId, updatefrequency) => {
     SET updatefrequency = ${updatefrequency} 
     WHERE uc_id = '${userCoinId}'`,
   };
-  const { rows } = await db.query(query);
-  return rows;
+  const { rowCount } = await db.query(query);
+  return rowCount;
 }

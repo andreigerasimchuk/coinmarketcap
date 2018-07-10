@@ -1,6 +1,6 @@
-const { Pool } = require('pg')
+import { Pool } from 'pg';
 
-var config = {
+const config = {
   user: 'postgres',
   database: 'coinmarketcap', 
   password: '123', 

@@ -1,11 +1,11 @@
 import db from '../db';
 
-export default async (userId) => {
+export default async (uc_id) => {
   const query = {
     text: `DELETE 
     FROM usercoins 
-    WHERE usercoins.uc_id = '${userId}'`,
+    WHERE usercoins.uc_id = '${uc_id}'`,
   };
-  const { rows } = await db.query(query);
-  return rows;
+  const { rowCount } = await db.query(query);
+  return rowCount;
 }
