@@ -13,3 +13,4 @@ export { default as assignCoinsToUser } from './coins/assignCoinsToUser';
 export { default as setUserCoinsCourses } from './coins/setUserCoinsCourses';
 export { default as getUserCoinsCourses } from './coins/getUserCoinsCourses';
 export { default as getUsersCoinsForUpdate } from './coins/getUsersCoinsForUpdate';
+export { default as getUserCoinsByUserCoinsId } from './coins/getUserCoinsByUserCoinsId';
