@@ -46,7 +46,7 @@ class DataList extends Component {
     this.setState({ coins: coins });
   }
   handleUpdating = (uc_id, updatefrequency) => {
-    this.props.coinsService.updateUserCoin(uc_id, updatefrequency);
+    this.props.coinsService.updateUserCoin(uc_id, updatefrequency * 60 * 1000);
   }
   handleChecking = (id) => {
     const { coins } = this.state;
@@ -60,7 +60,7 @@ class DataList extends Component {
     let currentCoins = coins.map(coin => {
       return {
         c_id: coin.c_id,
-        updatefrequency: coin.updatefrequency,
+        updatefrequency: coin.updatefrequency * 60 * 1000,
       }
     });
     this.props.coinsService.setUserCoins({ coins: currentCoins })

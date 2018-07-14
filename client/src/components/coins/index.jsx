@@ -26,7 +26,7 @@ class Coins extends Component {
         accessor: 'coinsymbol'
       },
       {
-        Header: 'price',
+        Header: 'price ($)',
         accessor: 'price'
       }, {
         Header: 'percent_change_1h',

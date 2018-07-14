@@ -30,7 +30,15 @@ export default async (req, res) => {
       return getUserCoinsCourses(userId);
     })
     .then(data => {
-      res.status(200).json(data);
+      console.log(data);
+      const currentDate = new Date().getTime();
+      let currentCoins = data.map(coin => {
+        return {
+          ...coin,
+          lastupdatedate: currentDate - coin.lastupdatedate, 
+        }
+      })
+      res.status(200).json(currentCoins);
     })
     .catch(err => res.status(500).json(err));
 }

@@ -64,7 +64,7 @@ class Coins {
         c_id: coin.c_id,
         coinname: coin.coinname,
         checked: false,
-        updatefrequency: coin.updatefrequency || defaultUpdateFrequency,
+        updatefrequency: coin.updatefrequency / (60 * 1000) || defaultUpdateFrequency,
       }
     });
     return currentCoins;
@@ -83,7 +83,14 @@ class Coins {
       })
       .then(res => res.json())
       .then(data => {
-        return data;
+        let currentCourses = data.map(coin => {
+          const currentUpdateDate = coin.lastupdatedate / (60 * 1000);
+          return {
+            ...coin,
+            lastupdatedate: Math.round(currentUpdateDate),
+          }
+        })
+        return currentCourses;
       });
   }
 
