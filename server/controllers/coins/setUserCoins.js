@@ -5,14 +5,10 @@ export default (req, res) => {
   const { coins } = req.body;
   let addedCoins;
   createUserCoins(userId, coins)
-    .then(data => {
-      return getUserCoinsByUserCoinsId(data);
-    })
+    .then(data =>  getUserCoinsByUserCoinsId(data))
     .then(data => {
       addedCoins = data;
       return getListCoins(userId);
     })
-    .then(data => {
-      res.status(200).json({ addedCoins, coins: data });
-    });
+    .then(data => res.status(200).json({ addedCoins, coins: data }));
 }

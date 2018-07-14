@@ -4,8 +4,8 @@ export default async (uc_id) => {
   const query = {
     text: `DELETE 
     FROM usercoins 
-    WHERE usercoins.uc_id = '${uc_id}'`,
+    WHERE usercoins.uc_id = '${uc_id}' RETURNING c_id`,
   };
-  const { rowCount } = await db.query(query);
-  return rowCount;
+  const { rows }  = await db.query(query);
+  return rows;
 }

@@ -1,4 +1,12 @@
+.coins-list__wrapper {
+  display: flex;
+}
+.coins {
+  display: flex;
+  flex-direction: row;
+}
 .coins-form {
   background: #c0dfd9;
-  min-width: 400px;
+  min-width: #c0dfd9;
+  margin: 5px;
 }

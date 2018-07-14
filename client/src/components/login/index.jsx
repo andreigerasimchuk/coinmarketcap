@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import AuthService from '../../services/Auth';
 import './index.scss';
 
 class Login extends Component {
@@ -7,18 +6,25 @@ class Login extends Component {
     super(props);
     this.loginInput = React.createRef();
     this.passwordInput = React.createRef();
-    this.Auth = new AuthService();
+    this.state = {
+      loginError: false,
+      messageError: '',
+    }
   }
   onLogin = (event) => {
     event.preventDefault();
     const correctlogin = this.loginInput.current.value;
     const password = this.passwordInput.current.value;
-    this.Auth.login(correctlogin, password)
+    this.props.authService.login(correctlogin, password)
       .then(data => {
+        this.props.handleLogIn();
         this.props.history.replace('/');
       })
       .catch(err => {
-        alert(err);
+        this.setState({
+          loginError: true,
+          messageError: err
+        });
       });
   }
   render() {
@@ -37,6 +43,7 @@ class Login extends Component {
               ref={this.passwordInput}
             />
             <button className="">login</button>
+            {this.state.loginError && <div>{this.state.messageError}</div>}
           </form>
         </div>
       </div>

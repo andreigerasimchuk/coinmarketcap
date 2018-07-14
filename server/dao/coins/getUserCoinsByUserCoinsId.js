@@ -15,6 +15,7 @@ export default async (userCoins) => {
     text: `SELECT 
     usercoins.uc_id, 
     usercoins.updatefrequency, 
+    coins.c_id,
     coins.coinname, 
     coins.coinsymbol
     FROM usercoins

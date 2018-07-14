@@ -8,6 +8,7 @@ export { default as createCoins } from './coins/createCoins';
 export { default as getCoinsUser } from './coins/getUserCoins';
 export { default as updateUserCoin} from './coins/updateUserCoin';
 export { default as deleteUserCoins} from './coins/deleteUserCoins';
+export { default as getCoinListById } from './coins/getCoinListById';
 export { default as createUserCoins } from './coins/createUserCoins';
 export { default as assignCoinsToUser } from './coins/assignCoinsToUser';
 export { default as setUserCoinsCourses } from './coins/setUserCoinsCourses';
