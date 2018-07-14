@@ -7,6 +7,7 @@ import {
 import {
   getCoinsСourses,
   getCoinsForUpdate,
+  getCurrentTimeUpdate,
   getCurrentCoinsForUpdate
 } from '../../core/services/coins';
 
@@ -16,6 +17,7 @@ export default async (req, res) => {
   getUsersCoinsForUpdate(userId)
     .then(data => {
       userCurrentCoins = getCoinsForUpdate(data);
+      console.log(userCurrentCoins)
       return userCurrentCoins;
     })
     .then(data => {
@@ -30,14 +32,7 @@ export default async (req, res) => {
       return getUserCoinsCourses(userId);
     })
     .then(data => {
-      console.log(data);
-      const currentDate = new Date().getTime();
-      let currentCoins = data.map(coin => {
-        return {
-          ...coin,
-          lastupdatedate: currentDate - coin.lastupdatedate, 
-        }
-      })
+      const currentCoins = getCurrentTimeUpdate(data);
       res.status(200).json(currentCoins);
     })
     .catch(err => res.status(500).json(err));

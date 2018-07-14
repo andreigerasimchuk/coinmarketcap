@@ -41,8 +41,7 @@ const updateCoinsInformations = () => {
 
 const getCoinsForUpdate = (coins) => {
   const currentDate = new Date().getTime();
-  const currentCoins = coins.filter(coin =>
-    (Number(coin.lastupdatedate) + coin.updatefrequency) < currentDate);
+  const currentCoins = coins.filter(coin => (Number(coin.lastupdatedate) < currentDate));
   return currentCoins;
 }
 
@@ -61,9 +60,21 @@ const getCurrentCoinsForUpdate = (coins, userCurrentCoins) => {
   return currentCoins;
 }
 
+const getCurrentTimeUpdate = (coins) => {
+  const currentDate = new Date().getTime();
+  let currentCoins = coins.map(coin => {
+    return {
+      ...coin,
+      lastupdatedate: currentDate - coin.lastupdatedate,
+    }
+  });
+  return currentCoins;
+}
+
 export {
   getCurrentCoinsForUpdate,
   updateCoinsInformations,
+  getCurrentTimeUpdate,
   getCoinsForUpdate,
   getCoinsСourses,
 }
