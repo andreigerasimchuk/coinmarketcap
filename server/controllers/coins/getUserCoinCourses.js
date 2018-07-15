@@ -17,7 +17,6 @@ export default async (req, res) => {
   getUsersCoinsForUpdate(userId)
     .then(data => {
       userCurrentCoins = getCoinsForUpdate(data);
-      console.log(userCurrentCoins)
       return userCurrentCoins;
     })
     .then(data => {
@@ -28,12 +27,14 @@ export default async (req, res) => {
       let currentCoins = getCurrentCoinsForUpdate(coins, userCurrentCoins);
       return currentCoins.length ? setUserCoinsCourses(currentCoins) : currentCoins;
     })
-    .then(data => {
+    .then(() => {
       return getUserCoinsCourses(userId);
     })
     .then(data => {
       const currentCoins = getCurrentTimeUpdate(data);
       res.status(200).json(currentCoins);
     })
-    .catch(err => res.status(500).json(err));
+    .catch(err => {
+      res.status(500).json({ message: err.message });
+    });
 }

@@ -15,12 +15,12 @@ const router = express.Router();
 
 router.get('/', passport.authenticate('jwt', { session: false }), getAllCoins);
 router.get('/:userId', passport.authenticate('jwt', { session: false }), getCoinsList);
-router.get('/user/:userId', getUserCoins);
-router.get('/courses/:userId', getUserCoinCourses);
+router.get('/user/:userId', passport.authenticate('jwt', { session: false }), getUserCoins);
+router.get('/courses/:userId', passport.authenticate('jwt', { session: false }), getUserCoinCourses);
 
-router.patch('/', updateCoinUser);
+router.patch('/', passport.authenticate('jwt', { session: false }), updateCoinUser);
 
-router.delete('/user/:userId', removeUserCoin);
+router.delete('/user/:userId', passport.authenticate('jwt', { session: false }), removeUserCoin);
 
 router.post('/:userId', passport.authenticate('jwt', { session: false }), setUserCoins);
 

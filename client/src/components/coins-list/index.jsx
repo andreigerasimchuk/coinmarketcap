@@ -34,12 +34,22 @@ class DataList extends Component {
       });
   }
   handleUpdateFrequency = (id, value) => {
+    if (!value.match('^\\d+$')) {
+      if(!value == '') {
+        return;
+      }
+    }
     const { userCoins } = this.state;
     const index = userCoins.findIndex(coin => coin.c_id === id);
     userCoins[index].updatefrequency = value;
     this.setState({ userCoins });
   }
   handleCoinUpdatingFrequency = (id, value) => {
+    if (!value.match('^\\d+$')) {
+      if(!value == '') {
+        return;
+      }
+    }
     const { coins } = this.state;
     const index = coins.findIndex(coin => coin.c_id === id);
     coins[index].updatefrequency = value;

@@ -23,14 +23,14 @@ class Login extends Component {
       return;
     }
     this.props.authService.login(correctlogin, password)
-      .then(data => {
+      .then(() => {
         this.props.handleLogIn();
         this.props.history.replace('/');
       })
-      .catch(err => {
+      .catch(errMessage => {
         this.setState({
           loginError: true,
-          messageError: err
+          messageError: errMessage
         });
       });
   }

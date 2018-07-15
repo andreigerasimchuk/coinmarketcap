@@ -25,8 +25,5 @@ export default (req, res) => {
       } else {
         res.status(401).json({ message: "passwords did not match" });
       }
-    })
-    .then(err => {
-      res.status(500);
     });
 }
