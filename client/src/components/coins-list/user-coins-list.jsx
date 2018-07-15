@@ -24,11 +24,15 @@ const UserCoinsList = ({
   });
 
   return (
-      <div className="coins">
-        <form className="coins-form">
-          <div className="coins-form__list">{coinsList}</div>
-        </form>
-      </div>
+    <div className="coins">
+      {coinsList.length ?
+        <React.Fragment>
+          <div className="coins-header">Selected coins</div>
+          <form className="coins-form">
+            <div className="coins-form__list">{coinsList}</div>
+          </form>
+        </React.Fragment> : <div />}
+    </div>
   )
 }
 

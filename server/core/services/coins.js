@@ -6,7 +6,7 @@ const getCoins = () => {
     .then(res => res.json())
     .then(res => {
       let { data } = res;
-      data.length = 10;
+      data.length = 30;
       return data;
     })
     .catch(err => []);

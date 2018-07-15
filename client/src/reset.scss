@@ -2,3 +2,39 @@
   margin: 0;
   padding: 0;
 }
+
+//input,
+//label,
+//select,
+button
+//textarea 
+{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: normal;
+    background: none;
+    line-height: 1;
+    outline: none;
+    /* Browsers have different default form fonts */
+    font-size: 13px;
+    font-family: Arial;
+}
+
+.btn {
+  background: #9068be;
+  border: 1px solid #29247E;
+  width: 70px;
+  height: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: background-color 0.5s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #7E2072;
+}

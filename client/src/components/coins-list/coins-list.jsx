@@ -20,17 +20,18 @@ const CoinsList = ({
     />
   });
   return (
-      <div className="coins">
-        <form className="coins-form" onSubmit={onSubmitForm}>
-          <button
-            type="submit"
-            className="coins-form__btn"
-          >
-            SAVE
+    <div className="coins">
+      <div className="coins-header">Coins</div>
+      <form className="coins-form" onSubmit={onSubmitForm}>
+        <button
+          type="submit"
+          className="coins-form__btn btn"
+        >
+          SAVE
           </button>
-          <div className="coins-form__list">{coinsList}</div>
-        </form>
-      </div>
+        <div className="coins-form__list">{coinsList}</div>
+      </form>
+    </div>
   );
 }
 

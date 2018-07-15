@@ -15,6 +15,13 @@ class Login extends Component {
     event.preventDefault();
     const correctlogin = this.loginInput.current.value;
     const password = this.passwordInput.current.value;
+    if (!correctlogin.trim().length || !password.trim().length) {
+      this.setState({
+        loginError: true,
+        messageError: 'The username or password can not be empty.'
+      });
+      return;
+    }
     this.props.authService.login(correctlogin, password)
       .then(data => {
         this.props.handleLogIn();
@@ -31,22 +38,24 @@ class Login extends Component {
     return (
       <div className="page-container">
         <div className="login">
-          <form className="" onSubmit={this.onLogin}>
+          <form className="" onSubmit={this.onLogin} className="login-form">
+            <label className="login-form__label">Username:</label>
             <input
               type="text"
-              className="login__userName"
+              className="login-form__userName"
               ref={this.loginInput}
             />
+            <label className="login-form__label">Password:</label>
             <input
               type="password"
-              className="login__userPassword"
+              className="login-form__userPassword"
               ref={this.passwordInput}
             />
-            <button className="">login</button>
+            <button className="login-form__btn btn">login</button>
             {this.state.loginError && <div>{this.state.messageError}</div>}
           </form>
         </div>
-      </div>
+      </div >
     )
   }
 }

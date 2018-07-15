@@ -28,12 +28,23 @@ class Coins extends Component {
       {
         Header: 'price ($)',
         accessor: 'price'
-      }, {
-        Header: 'percent_change_1h',
-        accessor: 'percent_change_1h'
       },
       {
-        Header: 'time passed',
+        Header: 'percent change (1h)',
+        accessor: 'percent_change_1h',
+        getProps: (state, rowInfo) => {
+          if (rowInfo != undefined) {
+            return {
+              style: {
+                color: rowInfo.row.percent_change_1h > 0 ? "green" : "red",
+              }
+            }
+          }
+          return {};
+        }
+      },
+      {
+        Header: 'last update was ... (min)',
         accessor: 'lastupdatedate'
       },
     ];
@@ -42,7 +53,12 @@ class Coins extends Component {
       <div className="page-container">
         <div className="coins">
           <div className="coins__table">
-            <ReactTable data={this.state.coins} columns={columns} />
+            <ReactTable
+              data={this.state.coins}
+              columns={columns}
+              defaultPageSize={15}
+              style={{ background: "#F8F8F8" }}
+            />
           </div>
         </div>
       </div>

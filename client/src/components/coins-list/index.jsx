@@ -75,19 +75,21 @@ class DataList extends Component {
   }
   render() {
     return (
-      <div className="coins-list__wrapper">
-        <CoinsList
-          list={this.state.coins}
-          handleChecking={this.handleChecking}
-          onSubmitForm={this.onSubmitForm}
-          handleCoinUpdatingFrequency={this.handleCoinUpdatingFrequency}
-        />
-        <UserCoinsList
-          list={this.state.userCoins}
-          handleRemoving={this.handleRemoving}
-          handleUpdateFrequency={this.handleUpdateFrequency}
-          handleUpdating={this.handleUpdating}
-        />
+      <div className="page-container">
+        <div className="coins-list__wrapper">
+          <CoinsList
+            list={this.state.coins}
+            handleChecking={this.handleChecking}
+            onSubmitForm={this.onSubmitForm}
+            handleCoinUpdatingFrequency={this.handleCoinUpdatingFrequency}
+          />
+          <UserCoinsList
+            list={this.state.userCoins}
+            handleRemoving={this.handleRemoving}
+            handleUpdateFrequency={this.handleUpdateFrequency}
+            handleUpdating={this.handleUpdating}
+          />
+        </div>
       </div>
     );
   }

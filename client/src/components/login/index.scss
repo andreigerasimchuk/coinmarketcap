@@ -1,0 +1,35 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #c0dfd9;
+  width: 30vw;
+  height: 155px;
+  align-self: center;
+  padding: 20px;
+  .login-form__userName {
+    min-height: 20px;
+    margin: 5px;
+  }
+  .login-form__userPassword {
+    min-height: 20px;
+    margin: 5px 5px 0 5px;
+  }
+  .login-form__btn {
+    min-height: 25px;
+    margin: 5px;
+    width: 60px;
+    height: 20px;
+    text-transform: uppercase;
+  }
+  .login-form__label {
+    color: #7E2072;
+    font-weight: 600;
+  }
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  height: 70vh;
+}

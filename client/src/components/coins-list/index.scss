@@ -1,12 +1,28 @@
 .coins-list__wrapper {
   display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
 }
+
 .coins {
   display: flex;
-  flex-direction: row;
+  .coins-header {
+    background: #9068be;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #fff;
+    min-height: 30px;
+  }
 }
+
 .coins-form {
   background: #c0dfd9;
-  min-width: #c0dfd9;
-  margin: 5px;
+  padding: 5px;
+  .coins-form__btn {
+    height: 20px;
+  }
 }

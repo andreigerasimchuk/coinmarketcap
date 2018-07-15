@@ -2,14 +2,21 @@
   display: flex;
   justify-content: space-between;
   margin: 10px;
-  .coin-checbox{
+  .coin-checbox {
     margin-right: 10px;
   }
   .coin-name {
-    min-width: 100px;
+    min-width: 150px;
   }
   .coin-updateFrequency {
     max-width: 40px;
-    margin-left: 10px;
+    margin: 0 10px;
+  }
+  .coin-update-btn {
+    margin: 0 10px;
+    height: 20px;
+  }
+  .coin-delete-btn {
+    height: 20px;
   }
 }

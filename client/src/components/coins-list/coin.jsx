@@ -45,9 +45,10 @@ const Coin = ({
         value={updateFrequency}
         onChange={handleChangeInput}
       />
-      {update && <button onClick={handleRemovingCoin}>delete</button>}
-      {update && <button onClick={handleUpdatingCoin}>update</button>}
-    </div>
+      <label htmlFor="">min</label>
+      {update && <button className="coin-update-btn btn" onClick={handleUpdatingCoin}>update</button>}
+      {update && <button className="coin-delete-btn btn" onClick={handleRemovingCoin}>delete</button>}
+    </div> 
   );
 }
 

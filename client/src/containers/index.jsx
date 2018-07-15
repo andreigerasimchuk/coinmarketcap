@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Navigation from '../components/navigation';
 import Login from '../components/login';
-import Stub from '../components/stub';
 import Coins from '../components/coins';
 import CoinsList from '../components/coins-list';
 
@@ -35,7 +34,6 @@ class App extends Component {
           loggedIn={this.state.loggedIn}
           handleLogout={this.handleLogout}
         />
-        <Route exact path="/" component={Stub} />
         <Route exact path="/login"
           render={(props) =>
             <Login
@@ -44,7 +42,7 @@ class App extends Component {
               {...props}
             />}
         />
-        <Route exact path="/coins"
+        <Route exact path="/"
           render={(props) => <Coins coinsService={this.coinsService} {...props} />}
         />
         <Route exact path="/coins-list"
