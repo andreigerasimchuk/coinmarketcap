@@ -23,14 +23,12 @@ class DataList extends Component {
   }
   handleRemoving = (uc_id) => {
     this.props.coinsService.removeUserCoin(uc_id)
-      .then(data => {
-        if (data.message = 'ok') {
+      .then(coins => {
           const { userCoins } = this.state;
           const coinIndex = userCoins.findIndex(coin => coin.uc_id === uc_id);
           userCoins.splice(coinIndex, 1);
-          let currentCoins = this.props.coinsService.createCoins(data.coins);
+          let currentCoins = this.props.coinsService.createCoins(coins);
           this.setState({ userCoins, coins: [...this.state.coins, ...currentCoins] });
-        }
       });
   }
   handleUpdateFrequency = (id, value) => {

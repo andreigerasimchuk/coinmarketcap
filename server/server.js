@@ -36,7 +36,7 @@ const init = () => {
   app.use(passport.initialize());
   app.use(passport.session());
   passport.use(strategy);
-  app.use('/api', usersApi);
+  app.use('/api/users', usersApi);
   app.use('/api/coins', coinsApi);
 }
 
@@ -49,6 +49,8 @@ const start = () => {
     }
     console.info(`Server is up on ${port}'s port`);
     updateCoinsInformations();
+    const millisecondsInDay = 86400000;
+    setInterval(updateCoinsInformations, millisecondsInDay);
   });
 }
 

@@ -7,7 +7,7 @@ class Auth {
       body: JSON.stringify({ login, password })
     };
 
-    return fetch('http://localhost:3009/api/login', requestOptions)
+    return fetch('http://localhost:3009/api/users/login', requestOptions)
       .then(res => this.handleResponse(res))
       .then(user => {
         this.setUser(user);

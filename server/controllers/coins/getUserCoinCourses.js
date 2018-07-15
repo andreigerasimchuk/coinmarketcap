@@ -32,7 +32,7 @@ export default async (req, res) => {
     })
     .then(data => {
       const currentCoins = getCurrentTimeUpdate(data);
-      res.status(200).json(currentCoins);
+      res.status(200).json({ message: 'ok', coins: currentCoins });
     })
     .catch(err => {
       res.status(500).json({ message: err.message });

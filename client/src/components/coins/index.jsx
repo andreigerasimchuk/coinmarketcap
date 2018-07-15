@@ -10,8 +10,8 @@ class Coins extends Component {
 
   componentDidMount() {
     this.props.coinsService.getCoinsCourses()
-      .then(data => {
-        this.setState({ coins: data });
+      .then(coins => {
+        this.setState({ coins });
       });
   }
 
