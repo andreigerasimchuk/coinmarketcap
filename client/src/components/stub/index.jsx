@@ -5,7 +5,7 @@ class Stub extends Component {
   render() {
     return (
       <div className="page-container">
-        Page not found ...
+        stub
       </div>
     );
   }
