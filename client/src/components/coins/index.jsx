@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AuthWrapped from '../AuthWrapped';
 import ReactTable from 'react-table';
+import 'react-table/react-table.css';
 import './index.scss';
 
 class Coins extends Component {

@@ -4,7 +4,7 @@ import Navigation from '../components/navigation';
 import Login from '../components/login';
 import Coins from '../components/coins';
 import CoinsList from '../components/coins-list';
-
+import Stub from '../components/stub';
 import AuthService from '../services/Auth';
 import CoinsService from '../services/Coins';
 
@@ -48,6 +48,7 @@ class App extends Component {
         <Route exact path="/coins-list"
           render={(props) => <CoinsList coinsService={this.coinsService} {...props} />}
         />
+        <Route component={Stub}/>
       </div>
     );
   }

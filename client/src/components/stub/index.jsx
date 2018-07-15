@@ -4,8 +4,8 @@ class Stub extends Component {
 
   render() {
     return (
-      <div className="container">
-        Stub
+      <div className="page-container">
+        Page not found ...
       </div>
     );
   }
